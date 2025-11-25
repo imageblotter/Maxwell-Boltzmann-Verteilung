@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Maxwell-Boltzmann Gassimulation</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div class="app-container">
+        <header>
+            <h1>Gassimulation</h1>
+            <div class="controls-top">
+                <button id="reset-btn" class="btn primary">Reset</button>
+                <button id="pause-btn" class="btn secondary">Pause</button>
+            </div>
+        </header>
+
+        <main class="simulation-area">
+            <div class="canvas-container">
+                <canvas id="sim-canvas"></canvas>
+                <div class="overlay-info" id="fps-counter">FPS: 60</div>
+            </div>
+
+            <div class="histogram-container">
+                <h3>Geschwindigkeitsverteilung</h3>
+                <canvas id="hist-canvas"></canvas>
+            </div>
+        </main>
+
+        <aside class="controls-sidebar">
+            <div class="control-group">
+                <label for="molecule-count">Teilchenanzahl: <span id="val-molecule-count">500</span></label>
+                <input type="range" id="molecule-count" min="10" max="1500" value="500">
+            </div>
+
+            <div class="control-group">
+                <label for="sim-speed">Simulationsgeschwindigkeit: <span id="val-sim-speed">1.0x</span></label>
+                <input type="range" id="sim-speed" min="0.1" max="5.0" step="0.1" value="1.0">
+            </div>
+            <div class="control-group">
+                <label for="gravity">Schwerkraft: <span id="val-gravity">0</span></label>
+                <input type="range" id="gravity" min="0" max="20" step="0.5" value="0">
+            </div>
+
+            <div class="control-group">
+                <label for="heater-temp">Heizung / Kühler: <span id="val-heater-temp">0</span></label>
+                <input type="range" id="heater-temp" min="-100" max="100" value="0">
+            </div>
+
+            <div class="control-group">
+                <label>Voreinstellungen</label>
+                <select id="setup-select">
+                    <option value="random">Zufallsverteilung</option>
+                    <option value="single">Einzelnes Teilchen</option>
+                    <option value="two-gases">Zwei Gase</option>
+                    <option value="brownian">Brownsche Bewegung</option>
+                    <option value="expansion">Expansion</option>
+                </select>
+            </div>
+        </aside>
+    </div>
+    <script src="src/script.js"></script>
+</body>
+
+</html>
